@@ -1,3 +1,3 @@
-# JuanMChau.github.io
+# Juan M. Chau's website
 
-<a href="doc:introduction" target="_blank">Introduction</a>
+(Email)[mailto:juan.m.chau@gmail.com] / (Twitter)[www.twitter.com/Juan_M_Chau] / (GitHub)[www.github.com/JuanMChau] / ...
