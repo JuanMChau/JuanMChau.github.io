@@ -34,7 +34,7 @@ plugins: # If you build your site on gh-pages, only use these plugins: https://p
   - jekyll-feed
   - jekyll-sitemap
 exclude:
-  - README.md
+  #- README.md
   - Gemfile
   - Gemfile.lock
   - node_modules
