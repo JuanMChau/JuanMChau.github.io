@@ -7,19 +7,16 @@
 
 ## Education
 
-### Ph.D. in Psychology (2022-Present)
-#### University of Nottingham
+**Ph.D. in Psychology** @ University of Nottingham (2022-Present)
+<br>
 
-
-### M.Sc. in Mechatronics (2017-2018)
-#### Pontificia Universidad Católica del Perú
+**M.Sc. in Mechatronics** @ Pontificia Universidad Católica del Perú (2017-2018)
 [Thesis](https://tesis.pucp.edu.pe/repositorio/handle/20.500.12404/14181)
+<br>
 
-
-### B.Sc. in Mechatronics (2007-2013)
-#### Universidad Nacional de Ingeniería
+**B.Sc. in Mechatronics** @ Universidad Nacional de Ingeniería (2007-2013)
 [Thesis](http://cybertesis.uni.edu.pe/handle/uni/15984)
-
+<br>
 
 ## Teaching Experience
 
