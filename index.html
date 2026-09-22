@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan M. Chau Delgado</title>
+<meta name="description" content="Juan M. Chau Delgado — PhD in Cognitive Psychology">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="avatar" aria-hidden="true"></div>
+    <h1>Juan M. Chau Delgado</h1>
+    <p class="role">PhD in Cognitive Psychology, University of Nottingham</p>
+
+    <div class="swatch-motif" aria-hidden="true">
+      <div class="swatch-pair p1"><span></span><span></span></div>
+      <div class="swatch-pair p2"><span></span><span></span></div>
+      <div class="swatch-pair p3"><span></span><span></span></div>
+    </div>
+
+    <ul class="links">
+      <li><a href="mailto:[you@example.com]">Email</a></li>
+      <li><a href="[https://github.com/yourhandle]">GitHub</a></li>
+      <li><a href="[https://linkedin.com/in/yourhandle]">LinkedIn</a></li>
+      <li><a href="[https://scholar.google.com/citations?user=yourid]">Google Scholar</a></li>
+    </ul>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" type="button">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="label">Switch to light</span>
+    </button>
+  </aside>
+
+  <main class="content">
+    <div class="inner">
+
+      <section class="bio">
+        <p>
+          [A short bio paragraph. What you work on, where — e.g. "I am a
+          PhD researcher studying how the human mind compresses and
+          organises information in visual working memory, using
+          behavioural and EEG methods." Two or three sentences is plenty.]
+        </p>
+        <p>
+          [Optional second paragraph — background, prior degrees, or what
+          you're looking for next, e.g. postdoc / industry research
+          roles.]
+        </p>
+      </section>
+
+      <section aria-labelledby="news-label">
+        <p class="section-label" id="news-label">News</p>
+
+        <div class="news-item">
+          <span class="news-date">[MM/YYYY]</span>
+          <span class="news-text">[Add a news item — e.g. thesis submitted, paper accepted, talk given.]</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">[MM/YYYY]</span>
+          <span class="news-text">[Add a news item.]</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">[MM/YYYY]</span>
+          <span class="news-text">[Add a news item.]</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+</div>
+<script src="theme.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

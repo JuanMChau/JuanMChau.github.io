@@ -1,38 +1,38 @@
-# Juan M. Chau
-###### Peruvian Psychology Ph.D. student at the Univeristy of Nottingham
-[Publications](https://scholar.google.com.pe/citations?user=UA1kLj8AAAAJ&hl=en&oi=ao) / [Email](mailto:juan.m.chau@gmail.com) / [Twitter](https://www.twitter.com/Juan_M_Chau) / [GitHub](https://www.github.com/JuanMChau)
-<br><br>
+# Personal site
 
-## Education
+Plain HTML/CSS, no build step — three pages (Home, Publications, CV) sharing
+one stylesheet (`style.css`).
 
-**Ph.D. in Psychology** @ University of Nottingham (October 2022 - Present)
-<br><br>
+## Fill in the placeholders
 
-**M.Sc. in Mechatronics** @ Pontificia Universidad Católica del Perú (March 2017 - December 2018)
-<br>
-[Thesis](https://tesis.pucp.edu.pe/repositorio/handle/20.500.12404/14181)
-<br><br>
+Every `[bracketed]` piece of text is a placeholder — search for `[` across
+the files and replace with your own details: name, title, bio, links,
+news items, publications, and CV entries. There are three copies of the
+sidebar (one per page), so links and your name need updating in all three
+of `index.html`, `publications.html`, and `cv.html`.
 
-**B.Sc. in Mechatronics** @ Universidad Nacional de Ingeniería (August 2007 - July 2013)
-<br>
-[Thesis](http://cybertesis.uni.edu.pe/handle/uni/15984)
-<br><br>
+Add a real photo by replacing the `.avatar` div in each page with an
+`<img>` tag pointing at a file in `images/`.
 
-## Teaching Experience
+If you want a downloadable CV, drop a `cv.pdf` file next to `cv.html` —
+the "Download PDF" button already points at it.
 
-**Demonstrator** @ University of Nottingham (October 2022 - Present)
-<br><br>
+## Deploy to GitHub Pages
 
-**Lecturer** @ Pontificia Universidad Católica del Perú (August 2019 - Present)
-<br><br>
-
-**Teaching Assistant** @ Pontificia Universidad Católica del Perú (August 2016 - August 2022)
-<br><br>
-
-
-## Mentoring
-<br><br>
-
-
-## Reviewing
-<br><br>
+1. Create a new repository on GitHub. If you want the site at
+   `https://<your-username>.github.io`, name the repo exactly
+   `<your-username>.github.io`. Any other name works too — it'll just be
+   served at `https://<your-username>.github.io/<repo-name>/` instead.
+2. Push these files to the repo's default branch:
+   ```
+   git init
+   git add .
+   git commit -m "Initial site"
+   git branch -M main
+   git remote add origin https://github.com/<your-username>/<repo-name>.git
+   git push -u origin main
+   ```
+3. In the repo on GitHub: **Settings → Pages → Build and deployment →
+   Source**, select "Deploy from a branch," branch `main`, folder `/ (root)`.
+4. Wait a minute or two, then visit the URL GitHub shows on that same
+   Pages settings page.

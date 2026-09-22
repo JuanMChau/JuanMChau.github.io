@@ -1,0 +1,363 @@
+/* ---------------------------------------------------------
+   Design tokens — dark is the default; [data-theme="light"]
+   on <html> (set by theme.js) overrides it.
+--------------------------------------------------------- */
+:root {
+  --paper: #1b1815;
+  --ink: #ede9e1;
+  --ink-soft: #a79f91;
+  --rule: #34302a;
+  --accent: #59b79b;      /* teal — primary accent, brightened for dark bg */
+  --accent-soft: #24342f; /* teal tint, for hover backgrounds */
+  --swatch-gold: #d3a466; /* secondary accent, used only in the pair motif */
+  --swatch-clay: #c97d5f;
+  --swatch-slate: #7c93a0;
+  --max-width: 640px;
+}
+
+:root[data-theme="light"] {
+  --paper: #f3f1ec;
+  --ink: #201f1d;
+  --ink-soft: #55534c;
+  --rule: #dad6cb;
+  --accent: #2f6659;
+  --accent-soft: #e4ece9;
+  --swatch-gold: #b98b4e;
+  --swatch-clay: #9a5a44;
+  --swatch-slate: #4c5f6b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 0.4em;
+  color: var(--ink);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+a:hover, a:focus-visible {
+  border-bottom-color: var(--accent);
+}
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+p { margin: 0 0 1em; color: var(--ink); }
+p.muted, span.muted { color: var(--ink-soft); }
+
+/* ---------------------------------------------------------
+   Page shell — fixed sidebar + scrolling content
+--------------------------------------------------------- */
+.shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  flex: 0 0 260px;
+  padding: 48px 32px;
+  border-right: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 6px;
+  background: linear-gradient(155deg, var(--accent) 0%, var(--swatch-slate) 100%);
+  margin-bottom: 20px;
+}
+
+.sidebar h1 {
+  font-size: 1.45rem;
+  margin-bottom: 2px;
+}
+
+.sidebar .role {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+
+/* Paired colour-swatch motif — a quiet nod to the chunked
+   colour-pair stimuli used in the research itself */
+.swatch-motif {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.swatch-pair {
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 26px;
+  height: 14px;
+}
+.swatch-pair span { flex: 1; }
+.swatch-pair.p1 span:nth-child(1) { background: var(--accent); }
+.swatch-pair.p1 span:nth-child(2) { background: var(--swatch-gold); }
+.swatch-pair.p2 span:nth-child(1) { background: var(--swatch-clay); }
+.swatch-pair.p2 span:nth-child(2) { background: var(--accent-soft); }
+.swatch-pair.p3 span:nth-child(1) { background: var(--swatch-slate); }
+.swatch-pair.p3 span:nth-child(2) { background: var(--swatch-gold); }
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  font-size: 0.9rem;
+}
+.links li { margin-bottom: 6px; }
+
+nav.primary-nav {
+  border-top: 1px solid var(--rule);
+  padding-top: 18px;
+}
+nav.primary-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav.primary-nav li { margin-bottom: 10px; }
+nav.primary-nav a {
+  font-size: 0.95rem;
+  color: var(--ink);
+  border-bottom: none;
+}
+nav.primary-nav a[aria-current="page"] {
+  color: var(--accent);
+  font-weight: 600;
+}
+nav.primary-nav a:hover { color: var(--accent); }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.theme-toggle:focus-visible { outline: none; }
+.theme-toggle .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: 0 0 auto;
+}
+
+.content {
+  flex: 1;
+  padding: 64px 48px 96px;
+  max-width: 760px;
+}
+
+.content > .inner { max-width: var(--max-width); }
+
+/* ---------------------------------------------------------
+   Home page
+--------------------------------------------------------- */
+.bio { margin-bottom: 48px; }
+
+.section-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.news-item {
+  display: flex;
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+.news-item:last-child { border-bottom: none; }
+.news-date {
+  flex: 0 0 84px;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  padding-top: 2px;
+}
+.news-text { flex: 1; }
+
+/* ---------------------------------------------------------
+   Publications page
+--------------------------------------------------------- */
+.pub-entry {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.pub-entry:last-child { border-bottom: none; }
+.pub-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+.pub-authors {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+.pub-venue {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.pub-links a { margin-right: 14px; font-size: 0.88rem; }
+.placeholder-note {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------
+   CV page
+--------------------------------------------------------- */
+.cv-section { margin-bottom: 40px; }
+.cv-entry { margin-bottom: 18px; }
+.cv-entry-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+.cv-entry-meta {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.cv-entry ul {
+  margin: 6px 0 0;
+  padding-left: 20px;
+}
+.cv-entry li { margin-bottom: 4px; font-size: 0.93rem; }
+
+.cv-download {
+  display: inline-block;
+  margin-bottom: 40px;
+  padding: 8px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+.cv-download:hover {
+  background: var(--accent-soft);
+  border-bottom: 1px solid var(--accent);
+}
+
+/* ---------------------------------------------------------
+   Mobile menu button + backdrop (hidden on desktop)
+--------------------------------------------------------- */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1001;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.menu-toggle span {
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+}
+.sidebar-backdrop.visible { display: block; }
+
+/* ---------------------------------------------------------
+   Responsive — sidebar becomes a slide-in panel on mobile
+--------------------------------------------------------- */
+@media (max-width: 780px) {
+  .shell { flex-direction: column; }
+
+  .menu-toggle { display: flex; }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;
+    max-width: 80vw;
+    background: var(--paper);
+    border-right: 1px solid var(--rule);
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+  .sidebar.open { transform: translateX(0); }
+
+  .content { padding: 72px 24px 72px; }
+  nav.primary-nav ul { display: block; }
+  nav.primary-nav li { margin-bottom: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .sidebar { transition: none; }
+}
