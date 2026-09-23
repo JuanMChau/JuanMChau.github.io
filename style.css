@@ -76,28 +76,33 @@ p.muted, span.muted { color: var(--ink-soft); }
 
 .sidebar {
   flex: 0 0 260px;
-  padding: 48px 32px;
+  border: none;
   border-right: 1px solid var(--rule);
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
+  display: block; /* iframe default is inline, which leaves a stray gap */
 }
 
 .avatar {
-  width: 88px;
-  height: 88px;
-  border-radius: 6px;
-  background: linear-gradient(155deg, var(--accent) 0%, var(--swatch-slate) 100%);
-  margin-bottom: 20px;
+  display: block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  margin: 0 auto 20px;
 }
 
-.sidebar h1 {
+/* These were previously scoped under .sidebar — now unscoped since
+   h1 and .role only ever appear inside sidebar.html anyway. */
+h1 {
   font-size: 1.45rem;
   margin-bottom: 2px;
 }
 
-.sidebar .role {
+.role {
   font-size: 0.92rem;
   color: var(--ink-soft);
   margin-bottom: 18px;
